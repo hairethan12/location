@@ -13,11 +13,11 @@ def process_location():
     user_agent = data.get('userAgent')
     ip_address = request.remote_addr
 
-    print(f"\n📍 Location Pinged at {datetime.datetime.now()}")
-    print(f"Latitude: {latitude}")
-    print(f"Longitude: {longitude}")
-    print(f"IP Address: {ip_address}")
-    print(f"User Agent: {user_agent}")
+    print(f"\n📍 Location Pinged at {datetime.datetime.now()}", flush=True)
+    print(f"Latitude: {latitude}", flush=True)
+    print(f"Longitude: {longitude}", flush=True)
+    print(f"IP Address: {ip_address}", flush=True)
+    print(f"User Agent: {user_agent}", flush=True)
     print("--------------------------------------------------")
 
     return jsonify({"status": "success", "ip": ip_address})
