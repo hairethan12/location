@@ -1,9 +1,13 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import datetime
 
 app = Flask(__name__)
-CORS(app)  # Allow cross-origin from ngrok
+CORS(app)
+
+@app.route('/')
+def home():
+    return render_template("index.html")
 
 @app.route('/process-location', methods=['POST'])
 def process_location():
@@ -18,7 +22,7 @@ def process_location():
     print(f"Longitude: {longitude}", flush=True)
     print(f"IP Address: {ip_address}", flush=True)
     print(f"User Agent: {user_agent}", flush=True)
-    print("--------------------------------------------------")
+    print("--------------------------------------------------", flush=True)
 
     return jsonify({"status": "success", "ip": ip_address})
 
